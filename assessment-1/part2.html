@@ -1,0 +1,93 @@
+<!-- Designer info
+ok: The background of each fieldset is lightyellow e.g. background:lightyellow.
+ok: The border of each fieldset is yellow, with 10px width e.g. border:10px solid yellow
+ok: The fieldset needs to have margin-bottom:10px
+ok:The width of each fieldset is 720px
+ok: The width of each label is 180px
+ok: The label text needs to have display:inline-block
+ok: The label text needs to be right-align and top-align
+ok: The labels of the checkbox and the radio needs to have width:auto
+ok: For the words on both sides of the two range, you can use any appropriate style e.g. text-align:center
+ok: The textarea needs to be width:360px and height:50px -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Your Dating website! </title>
+    <style>
+      fieldset {
+        background-color: lightyellow;
+        border: 10px solid yellow;
+        margin-bottom: 10px;
+        width: 720px;
+      }
+      label {
+        width: 180px;
+        display:inline-block;
+        text-align: right;
+        vertical-align: top;
+      }
+      .autoWidth {
+        width: auto;
+      }
+      .rangeSpanLeft {
+        display: inline-block;
+        text-align: center;
+        background-color: #a72b25;
+        color: white;
+        width: 40px;
+      }.rangeSpanRight{
+        display: inline-block;
+        text-align: center;
+        background-color: #832f82;
+        color: white;
+        width: 40px;
+      }
+      textarea {
+        width: 360px;
+        height: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Please Enter Your Details For Our Dating Website!</h1>
+    <form id='userInfo' method='post' enctype="multipart/form-data" action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php">
+      <fieldset>
+        <legend>Your Face</legend>
+        <label for="yourImage">Your image:</label> <input type='file' required id="yourImage"><br>
+        <label for="imagePreview">Image preview:</label> <img id='imagePreview'>
+      </fieldset>
+      <fieldset>
+        <legend>Your General Details</legend>
+          <label for="name">Name:</label> <input type='text' placeholder="Your full name" required id="name"> <br>
+          <label for="gender">Gender:</label> <input type='radio' value='gender' name='gender' required id="gender" class="autoWidth">Male <input type='radio' value='female' name='gender' required id="gender">Female <br>
+          <label for="age">Age:</label> <input type='number' value='age' min='18' placeholder="18" size='3' required id="age"><br>
+          <label for="dateOfBirth">Date of birth:</label> <input type='date' value='dateOfBirth' id="dateOfBirth"> <br>
+          <label for="favoriteColor">Favorite color:</label> <input type='color' value='color' id="favoriteColor"> <br>
+          <label for="country">Which country:</label>
+            <select>
+              <option value='brazil' id="country">Brazil</option>
+              <option value='canada' id="country">Canada</option>
+              <option value='china' id="country">China</option>
+              <option value='czechRepublic' id="country">Czech Republic</option>
+              <option value='Netherlands' id="country">Netherlands</option>
+              <option value='noSelection' selected id="country">No selection</option>
+            </select>
+      </fieldset>
+      <fieldset>
+        <legend>Your Indicators</legend>
+        <label for="height"> Height: </label> <span class="rangeSpanLeft">Short</span> <input type='range' min='0' max='100' id="height"><span class="rangeSpanRight">Tall</span><br>
+        <label for="salary"> Salary: </label> <span class="rangeSpanLeft">Poor</span> <input type='range' min='0' max='100' id="salary"><span class="rangeSpanRight">Rich</span><br>
+      </fieldset>
+      <fieldset>
+        <legend>Your Contact Information</legend>
+        <label for='email'>Email:</label> <input type='email' required id="email"><br>
+        <label for="mobile">Mobile:</label> <input type='tel' id="mobile"><br>
+        <label for="address">Address:</label> <textarea rows='2' id="address"></textarea><br>
+        <label for="method" class="autoWidth">Method to contact you:</label><input type='checkbox' name='method' id="method">Email <input type='checkbox' name='method' id="method">Whatsapp <input type='checkbox' name='method' id="method">In-app chat<br>
+      </fieldset>
+      <input type='submit' value='Submit'>
+    </form>
+  </body>
+</html>
