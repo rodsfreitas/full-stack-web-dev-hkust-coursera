@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Color guessing game!</title>
+  </head>
+  <body>
+    <script>
+      //first, let's create an array of colors
+      var colors = ['Aqua', 'Black', 'Blue', 'Brown', 'Fuchsia', 'Gold', 'Gray', 'Green', 'Orange', 'Pink', 'Purple', 'Red', 'Silver','White', 'Yellow' ];
+
+      var do_game = function(){
+        //then, let's find a random target color and alert it;
+        var colorsAmount = colors.length;
+        var target_index = Math.floor(Math.random() * colorsAmount);
+        var target = colors[target_index];
+        alert('target: ' + target);
+
+        //starts the loop
+        var guess_input = null;
+        while (guess_input != target) {
+            guess_input = prompt("What's the color among those? \n" + colors);
+        };
+      };
+
+      //starts the game
+      do_game();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Color guessing game!</title>
+  </head>
+  <body>
+    <script>
+      //first, let's create an array of colors and the global variables
+      var colors = ['aqua', 'black', 'blue', 'brown', 'fuchsia', 'gold', 'gray', 'green', 'orange', 'pink', 'purple', 'red', 'silver','white', 'yellow' ];
+      var guess_input = ""; //variable to store the guess input from the user
+      var finished = false; //store the current game status;
+      var counter = 0; //stores the guess counter;
+      var colorsAmount = colors.length;
+      var target = ""
+
+      //function to check the user input guess
+      var check_guess = function(){
+        //guess_input not in colors?
+        if (colors.indexOf(guess_input) == -1) {
+          alert("I don't recognize that color.\nPlease try again.");
+          return false;
+        } else if (guess_input < target) {
+          alert("Your input is alphabetically lower than mine!\nPlease try again.");
+          return false;
+        } else if (guess_input > target) {
+          alert("Your input is alphabetically higher than mine!\nPlease try again.");
+          return false;
+        } else {
+
+
+          //change background color
+          var myBody = document.getElementsByTagName("body")[0];
+          myBody.style.background = guess_input;
+
+          //display message
+          alert('Congratulations!\nIt took you ' + counter + ' guess(es) to finish the game!\nYou can see the colour in the background.');
+          return true;
+        }
+      };
+
+      var do_game = function(){
+        //first, let's find a random target color
+        var target_index = Math.floor(Math.random() * colorsAmount);
+        target = colors[target_index];
+        alert('target: ' + target);
+
+        while (finished == false) {
+          counter++;
+          guess_input = prompt("I am thinking of one of these colors: \n\n" + colors + "\n\nWhat color am I thinking of?");
+          finished = check_guess();
+        };
+      };
+
+      //starts the game
+      do_game();
+    </script>
+  </body>
+</html>
